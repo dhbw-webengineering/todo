@@ -15,7 +15,7 @@ export default function Home() {
         />
         <ol>
           <li>
-            Get started by editing <code>src/app/page.tsx</code>.
+            test 1
           </li>
           <li>Save and see your changes instantly.</li>
         </ol>
