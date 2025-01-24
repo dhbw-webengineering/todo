@@ -15,9 +15,11 @@ export default function Home() {
         />
         <ol>
           <li>
-            test 1
+            This is the webengineering page lul
           </li>
-          <li>Save and see your changes instantly.</li>
+          <li>
+            Another important information
+          </li>
         </ol>
 
         <div className={styles.ctas}>
