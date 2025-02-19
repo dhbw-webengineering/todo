@@ -1,8 +1,8 @@
 import Link from 'next/link';
 
-export default function Navbar() {
+export default function NavBar() {
     return (
-        <div style={{position: "fixed", display: "flex", justifyContent: "space-around", flexDirection: "column", height: "100%", width: "300px", backgroundColor: "#333333", paddingLeft: "20px", paddingBottom: "500px"}}>
+        <div id="root">
             <Link href="/">
                 Startseite
             </Link>
