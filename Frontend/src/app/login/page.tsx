@@ -1,17 +1,7 @@
-import { ReactElement } from "react";
-
 import Form from "next/form";
 import Image from 'next/image';
 
-
-
-function TestJustin(): ReactElement {
-    
-    return (<span>Ich</span>);
-}
-
-
-function login() {
+export default function login() {
     
     return (
 
@@ -25,6 +15,3 @@ function login() {
         </Form>
     )
 }
-
-
-export default login;
