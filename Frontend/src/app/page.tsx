@@ -1,120 +1,36 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import { sign } from "crypto";
+import Form from "next/form";
+import Image from 'next/image';
 
-export default function Home() {
-  return (
-    <div>
-      <div className={styles.page}>
-        <main className={styles.main}>
-          <Image
-            className={styles.logo}
-            src={`${process.env.BASE_PATH}/next.svg`}
-            alt="Next.js logo"
-            width={180}
-            height={38}
-            priority
-          />
-          <ol>
-            <li>
-              This is the webengineering page lul
-            </li>
-            <li>
-              Another important information
-            </li>
-            <li>
-              Another important information
-            </li>
-            <li>
-              Another important information
-            </li>
-            <li>
-              Another important information
-            </li>
-            <li>
-              Another important information
-            </li>
-            <li>
-              Another important information
-            </li>
-            <li>
-              Another important information
-            </li>
-            <li>
-              Another important information
-            </li>
-            <li>
-              Another important information
-            </li>
-            <li>
-              Another important information
-            </li>
-            <li>
-              Another important information
-            </li>
-            <li>
-              Another important information
-            </li>
-            <li>
-              Another important information
-            </li>
-            <li>
-              Another important information
-            </li>
-          </ol>
+function login() {
+    
+    return (
 
-          <div className={styles.ctas}>
-            <a
-              className={styles.primary}
-              href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Image
-                className={styles.logo}
-                src={`${process.env.BASE_PATH}/vercel.svg`}
-                alt="Vercel logomark"
-                width={20}
-                height={20}
-              />
-              Deploy now
-            </a>
-            <a
-              href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.secondary}
-            >
-              Read our docs
-            </a>
-          </div>
-        </main>
-        <footer className={styles.footer}>
-          <a
-            href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image aria-hidden src={`${process.env.BASE_PATH}/file.svg`} alt="File icon" width={16} height={16} />
-            Learn
-          </a>
-          <a
-            href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image aria-hidden src={`${process.env.BASE_PATH}/window.svg`} alt="Window icon" width={16} height={16} />
-            Examples
-          </a>
-          <a
-            href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image aria-hidden src={`${process.env.BASE_PATH}/globe.svg`} alt="Globe icon" width={16} height={16} />
-            Go to nextjs.org →
-          </a>
-        </footer>
-      </div>
-    </div>
-  );
+        <Form action="/search">
+             <Image src="/user.svg" alt="Logo" width={70} height={70} /><br />
+            {/* On submission, the input value will be appended to 
+                the URL, e.g. /search?user=abc&passwort=abc123 */}
+            <input name="user" placeholder="Username"/><br /><br />
+            <input name="password" type="password"  placeholder="password" /><br /><br />
+            <button /*onClick={login}*/>sign up</button>
+            <button type="submit">einloggen</button>
+        </Form>
+    )
+}
+
+export default function signup() {
+    
+    return (
+
+        <Form action="/search">
+             <Image src="/user.svg" alt="Logo" width={70} height={70} /><br />
+            {/* On submission, the input value will be appended to 
+                the URL, e.g. /search?user=abc&passwort=abc123 */}
+            <input name="user" placeholder="Username"/><br /><br />
+            <input name="password" type="password"  placeholder="password" /><br /><br />
+            <input name="repeat-password" type="repeat-password"  placeholder="repeat password" /><br /><br />
+            <button /*onClick={login}*/>sign up</button>
+            <button type="submit">einloggen</button>
+        </Form>
+    )
 }
