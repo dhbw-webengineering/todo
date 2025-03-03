@@ -1,6 +1,8 @@
 {
   "devDependencies": {
     "@types/node": "^22.13.9",
+    "nodemon": "^3.1.9",
+    "ts-node": "^10.9.2",
     "typescript": "^5.8.2"
   },
   "name": "backend",
@@ -8,7 +10,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "start": "node index.js"
+    "start": "nodemon"
   },
   "keywords": [],
   "author": "",
