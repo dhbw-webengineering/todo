@@ -11,7 +11,28 @@ interface Task {
 }
 
 const app: FastifyInstance = Fastify();
-const tasks: Task[] = [];
+const tasks: Task[] = [{
+    id: 0,
+    title: "Test0",
+    description: "string",
+    dueDate: 1746205163,
+    tags: ["tag1","tag2"],
+    done: false
+},{
+    id: 1,
+    title: "Test1",
+    description: "description description description description description description description description description description description description description ",
+    dueDate: 1746305163,
+    tags: [],
+    done: true
+},{
+    id: 2,
+    title: "Test2",
+    description: "string",
+    dueDate: 1743301163,
+    tags: ["tag1"],
+    done: false
+}];
 
 // Tags von String, in dem sie durch ","," " oder ";" getrennt werden mit dem regex in ein Array parsen und randleerzeichen entfernen
 const parseTags = (tags: string | string[]): string[] => {
