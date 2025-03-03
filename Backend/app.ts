@@ -16,16 +16,16 @@ const tasks: Task[] = [{
     title: "Test0",
     description: "string",
     dueDate: 1746205163,
-    tags: ["tag1","tag2"],
+    tags: ["tag1", "tag2"],
     done: false
-},{
+}, {
     id: 1,
     title: "Test1",
     description: "description description description description description description description description description description description description description ",
     dueDate: 1746305163,
     tags: [],
     done: true
-},{
+}, {
     id: 2,
     title: "Test2",
     description: "string",
@@ -119,6 +119,15 @@ app.delete('/:id/delete', (request: FastifyRequest, reply: FastifyReply) => {
 app.get('/list', (request: FastifyRequest, reply: FastifyReply) => {
     reply.send(tasks);
 });
+
+// task anhand der id zurückgeben
+app.get('/:id', (request: FastifyRequest, reply: FastifyReply) => {
+    const { id } = request.params as { id: string };
+    const task = tasks.find(t => t.id === parseInt(id));
+    if (!task) return reply.status(404).send({ error: 'Task not found' });
+    reply.send(task);
+});
+
 
 app.listen({ port: 3000 }, () => {
     console.log('Server running on port 3000');
