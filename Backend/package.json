@@ -11,14 +11,18 @@
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "dev": "nodemon",
-    "start": "node build/app.js"
+    "start": "node app.js"
+
+ 
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@fastify/cors": "^11.0.0",
     "fastify": "^5.2.1",
     "moment": "^2.30.1"
   }
 }
+
