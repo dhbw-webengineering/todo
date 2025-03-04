@@ -2,6 +2,9 @@ import Image from "next/image";
 import styles from "./page.module.css";
 
 export default function Home() {
+  
+
+
   return (
     <div>
       <div className={styles.page}>
@@ -88,7 +91,7 @@ export default function Home() {
             </a>
           </div>
         </main>
-        <footer className={styles.footer}>
+        {/* <footer className={styles.footer}>
           <a
             href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
             target="_blank"
@@ -113,7 +116,7 @@ export default function Home() {
             <Image aria-hidden src={`${process.env.BASE_PATH}/globe.svg`} alt="Globe icon" width={16} height={16} />
             Go to nextjs.org →
           </a>
-        </footer>
+        </footer> */}
       </div>
     </div>
   );
