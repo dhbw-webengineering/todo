@@ -7,10 +7,11 @@
   },
   "name": "backend",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/app.ts",
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "start": "nodemon"
+    "dev": "nodemon",
+    "start": "ts-node src/app.ts"
   },
   "keywords": [],
   "author": "",
