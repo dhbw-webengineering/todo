@@ -12,6 +12,8 @@
     "build": "tsc -p tsconfig.json",
     "dev": "nodemon",
     "start": "node app.js"
+
+ 
   },
   "keywords": [],
   "author": "",
@@ -23,3 +25,4 @@
     "moment": "^2.30.1"
   }
 }
+
