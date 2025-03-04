@@ -1,4 +1,5 @@
 import Fastify, { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify';
+import cors from '@fastify/cors';
 import moment from 'moment';
 
 interface Task {
@@ -42,8 +43,20 @@ const parseTags = (tags: string | string[]): string[] => {
     return [];
 };
 
+app.register(cors, {
+    origin: 'http://localhost:3000', // Exakte Origin, keine Wildcards
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true, 
+    preflight: true, // Wenn der preflight-Mechanismus explizit aktiviert werden muss
+});
+
+app.get('/test', (request: FastifyRequest, reply: FastifyReply) => {
+    reply.send({ message: 'CORS funktioniert!' });
+});
+
 // task erstellen
-app.post('/create', (request: FastifyRequest, reply: FastifyReply) => {
+app.post('/api/entry/create', (request: FastifyRequest, reply: FastifyReply) => {
     const { title, description = '', dueDate, tags = '' } = request.body as {
         title: string;
         description?: string;
@@ -74,7 +87,7 @@ app.post('/create', (request: FastifyRequest, reply: FastifyReply) => {
 });
 
 // status setzen
-app.patch('/:id/set', (request: FastifyRequest, reply: FastifyReply) => {
+app.patch('/api/entry/:id/set', (request: FastifyRequest, reply: FastifyReply) => {
     const { id } = request.params as { id: string };
     const { done } = request.body as { done: boolean };
     const task = tasks.find(t => t.id === parseInt(id));
@@ -85,7 +98,7 @@ app.patch('/:id/set', (request: FastifyRequest, reply: FastifyReply) => {
 });
 
 // task editieren
-app.put('/:id/edit', (request: FastifyRequest, reply: FastifyReply) => {
+app.put('/api/entry/:id/edit', (request: FastifyRequest, reply: FastifyReply) => {
     const { id } = request.params as { id: string };
     const task = tasks.find(t => t.id === parseInt(id));
     if (!task) return reply.status(404).send({ error: 'Task not found' });
@@ -106,7 +119,7 @@ app.put('/:id/edit', (request: FastifyRequest, reply: FastifyReply) => {
 });
 
 // task löschen
-app.delete('/:id/delete', (request: FastifyRequest, reply: FastifyReply) => {
+app.delete('/api/entry/:id/delete', (request: FastifyRequest, reply: FastifyReply) => {
     const { id } = request.params as { id: string };
     const index = tasks.findIndex(t => t.id === parseInt(id));
     if (index === -1) return reply.status(404).send({ error: 'Task not found' });
@@ -116,12 +129,12 @@ app.delete('/:id/delete', (request: FastifyRequest, reply: FastifyReply) => {
 });
 
 // alle tasks zurückgeben
-app.get('/list', (request: FastifyRequest, reply: FastifyReply) => {
+app.get('/api/entry/list', (request: FastifyRequest, reply: FastifyReply) => {
     reply.send(tasks);
 });
 
 // task anhand der id zurückgeben
-app.get('/:id', (request: FastifyRequest, reply: FastifyReply) => {
+app.get('/api/entry/:id', (request: FastifyRequest, reply: FastifyReply) => {
     const { id } = request.params as { id: string };
     const task = tasks.find(t => t.id === parseInt(id));
     if (!task) return reply.status(404).send({ error: 'Task not found' });
@@ -129,6 +142,6 @@ app.get('/:id', (request: FastifyRequest, reply: FastifyReply) => {
 });
 
 
-app.listen({ port: 3000 }, () => {
+app.listen({ port: 3001 }, () => {
     console.log('Server running on port 3000');
 });
