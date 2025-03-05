@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Image from "next/image";
+// import Image from "next/image";
 import styles from "./page.module.css";
 import moment from 'moment';
 moment.locale("de")

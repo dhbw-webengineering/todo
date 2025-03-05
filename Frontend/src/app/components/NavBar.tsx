@@ -1,20 +1,15 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import styles from './NavBar.module.css';
 
 export default function NavBar() {
 
     const categories = [{ "name": "Allgemein", "id": 0 }, { "name": "Kategorie 1", "id": 1 }, { "name": "Kategorie 2", "id": 2 }, { "name": "Kategorie 3", "id": 3 }]
 
-    let categoriesXML: string = "";
-    for (const c of categories) {
-        categoriesXML += `<Link href="/taks&cat=${c.id}" prefetch={false}>
-                ${c.name}
-            </Link>`
-    }
     return (
         <div id={styles.root}>
 
-            <h1><img src="checklist.svg" alt="" width={"30px"} />TODO-App</h1>
+            <Image src="checklist.svg" alt="" width={30} height={30}></Image><h1>TODO-App</h1>
 
             <Link href="/tasks" prefetch={false}>
                 alle Aufgaben
@@ -36,7 +31,7 @@ export default function NavBar() {
             )}
 
             <Link href={`/categories`} prefetch={false}>
-              <img src="categories.svg" width={"20px"} alt="" />  <span>Kategorien verwalten</span>
+                <Image src="categories.svg" height={20} width={20} alt="" /> <span>Kategorien verwalten</span>
             </Link>
 
 
