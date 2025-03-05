@@ -16,7 +16,7 @@ export default function signup() {
             <input name="user" placeholder="Username"/><br /><br />
             <input name="password" type="password"  placeholder="password" /><br /><br />
             <input name="repeat-password" type="repeat-password"  placeholder="repeat password" /><br /><br />
-            <button className={styles.fButton} formAction="/signup">sign up</button>
+            <button className={styles.fButton} formAction="/login">sign up</button>
         </Form>
         </div>
         </div>
