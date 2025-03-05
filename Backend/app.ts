@@ -1,6 +1,8 @@
 import Fastify, { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify';
 import cors from '@fastify/cors';
-import moment from 'moment';
+import moment from 'moment'
+
+
 
 interface Task {
     id: number;
@@ -45,9 +47,9 @@ const parseTags = (tags: string | string[]): string[] => {
 
 app.register(cors, {
     origin: 'http://localhost:3000', // Exakte Origin, keine Wildcards
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
     allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true, 
+    credentials: true,
     preflight: true, // Wenn der preflight-Mechanismus explizit aktiviert werden muss
 });
 
@@ -143,5 +145,5 @@ app.get('/api/entry/:id', (request: FastifyRequest, reply: FastifyReply) => {
 
 
 app.listen({ port: 3001 }, () => {
-    console.log('Server running on port 3000');
+    console.log('Server running on port 3001');
 });
