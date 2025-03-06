@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from './NavBar.module.css';
+import FilterNavBar from "@/app/components/FilterNavBar";
+import DynamicList from "@/app/components/Categories";
 
 export default function NavBar() {
 
@@ -18,6 +20,7 @@ export default function NavBar() {
                 Test1
             </Link>
 
+            <DynamicList items={["Test1","Test2"]}/>
 
             <hr></hr>
 
