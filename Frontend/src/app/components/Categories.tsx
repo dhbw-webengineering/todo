@@ -1,28 +1,42 @@
 "use client";
-import Link from "next/link";
-import Image from "next/image";
-import { useCategories } from "../categories/CategoryContext"; // Pfad ggf. anpassen
+import { useState } from "react";
 
-const CategoryList = () => {
-    const { categories } = useCategories();
+function CategoryList() {
+    const [items, setItems] = useState(["Main", "Second"]);
+
+    const handleClick = (item: string) => {
+        console.log("clicked", item);
+    };
+
+    const addItem = () => {
+        // Fügt ein zufälliges Element hinzu
+        setItems([...items, `Element ${Math.floor(Math.random() * 1000)}`]);
+    };
 
     return (
-        <div className="p-4 border rounded-lg">
-            <h2 className="text-lg font-bold mb-2">Kategorien</h2>
-            <ul className="list-none pl-0">
-                {categories.map((item, index) => (
-                    <li key={index} className="py-1">{item}</li>
+        <div >
+            <ul style={{ listStyleType: "none" }} >
+                {items.map((item, index) => (
+                    <li
+                        key={index}
+                        onClick={() => handleClick(item)}
+                    >
+                        {item}
+                    </li>
                 ))}
             </ul>
 
-            <Link href="/categories" prefetch={false}>
-                <a className="flex items-center gap-2 mt-4 text-blue-600 underline">
-                    <Image src="/categories.svg" height={15} width={15} alt="Kategorien Icon" />
-                    <span>Kategorien verwalten</span>
-                </a>
-            </Link>
+
+            <button
+                onClick={addItem}
+                className="button-link"
+                >
+                <span>Kategorien verwalten</span>
+            </button>
         </div>
     );
-};
+}
 
-export default CategoryList;
+export default function Categories() {
+    return <CategoryList />;
+}

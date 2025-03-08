@@ -1,4 +1,16 @@
-ul {
-    list-style: none !important;
-    padding-left: 0 !important;
+.button-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    color: #2563eb;
+    text-decoration: underline;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.button-link:hover {
+    color: #1d4ed8; /* Dunkleres Blau */
 }
