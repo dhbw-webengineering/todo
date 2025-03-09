@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Image from "next/image";
+
 import styles from "./page.module.css";
 import moment from 'moment';
 moment.locale("de")
@@ -103,6 +104,7 @@ const TaskItem: React.FC<TaskItemProps> = ({ task, onStatusChange }) => (
       </label>
     </div>
     <div className={styles.taskContent}>
+
       <p className={styles.taskDueDate}>fällig {moment().to(moment(task.dueDate * 1000))}  • {moment(task.dueDate * 1000).format("dd, DD.MM.YY")}</p>
       <h2 className={styles.taskTitle}>{task.title}</h2>
       <p className={styles.taskDescription}>{task.description}</p>
@@ -121,6 +123,7 @@ const TaskItem: React.FC<TaskItemProps> = ({ task, onStatusChange }) => (
       <div className={styles.taskActionBtn}>
         <Image src="trashcan.svg" height={20} width={20} alt="" />
       </div>
+
     </div>
   </div>
 );

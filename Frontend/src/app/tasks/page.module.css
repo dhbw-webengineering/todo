@@ -86,6 +86,7 @@
   user-select: none;
   /* Standard syntax */
 
+
 }
 
 .taskStatus {
@@ -143,3 +144,4 @@
 .taskItem:hover .taskActions {
   opacity: 1;
 }
+
