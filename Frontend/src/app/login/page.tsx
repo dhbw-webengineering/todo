@@ -10,31 +10,28 @@ export default function Login() {
   const handleLogin = (e: FormEvent<HTMLFormElement>) => {
 
 
-    e.preventDefault(); 
+    e.preventDefault();
 
     const formData = new FormData(e.currentTarget);
     const email = formData.get("email") as string;
     const password = formData.get("password") as string;
 
-    console.log("Email:", email);
-    console.log("Password:", password);
-    
+
     //API request...
-    if (email !="admin@todo" || password != "123" ) {
-      setError("wrong email or password");
+    if (email != "admin@todo" || password != "123") {
+      setError("Error: wrong email or password");
       return;
     }
 
     setError(null)
-    console.log("Logged in as admin");
     window.location.href = "/"
   };
 
   return (
     <div className={styles.loginForm}>
       <form onSubmit={handleLogin}>
-        <Image 
-        className={styles.fImage}
+        <Image
+          className={styles.fImage}
           src="/user.svg"
           alt="Logo"
           width={70}
@@ -45,7 +42,7 @@ export default function Login() {
           className={styles.fText}
           name="email"
           type="email"
-          placeholder="mail"
+          placeholder="email"
           required
         />
         <br />
@@ -68,9 +65,9 @@ export default function Login() {
           Sign up
         </button>
         <br />
-      {error && <p className={styles.errorMessage}>{error}</p>} 
+        {error && <p className={styles.errorMessage}>{error}</p>}
 
       </form>
-      </div>
+    </div>
   );
 }

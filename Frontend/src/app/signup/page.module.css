@@ -1,17 +1,27 @@
 .loginForm {
-    display: flex;
-    justify-content:  center;
-    align-items:center;
-    height: 100vh
-    
-  }
+  display: flex;
+  justify-content:  center;
+  align-items:center;
+  height: 100vh
   
-  .fButton {
-    margin-right: 10px;
-  }
-  
-  .fImage {
-    display: block;
-    margin: 0 auto; 
-  }
-  
+}
+
+.fText {
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.fButton {
+  margin-top: 10;
+  margin-right: 10px;
+}
+
+.fImage {
+  display: block;
+  margin: 0 auto; 
+}
+.errorMessage {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
