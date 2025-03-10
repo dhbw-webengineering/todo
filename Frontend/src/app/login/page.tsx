@@ -19,7 +19,7 @@ export default function Login() {
 
     //API request...
     if (email != "admin@todo" || password != "123") {
-      setError("Error: wrong email or password");
+      setError("wrong email or password");
       return;
     }
 
@@ -39,7 +39,6 @@ export default function Login() {
         />
         <br />
         <input
-          className={styles.fText}
           name="email"
           type="email"
           placeholder="email"
@@ -47,7 +46,6 @@ export default function Login() {
         />
         <br />
         <input
-          className={styles.fText}
           name="password"
           type="password"
           placeholder="password"
@@ -65,8 +63,8 @@ export default function Login() {
           Sign up
         </button>
         <br />
-        {error && <p className={styles.errorMessage}>{error}</p>}
-
+        <div className={styles.errorMessage}>{error && <p className={styles.errorCard}>{error}</p>}</div>
+      
       </form>
     </div>
   );

@@ -17,12 +17,12 @@ export default function signup() {
         const repeatPassword = formData.get("repeatPassword")as string;
 
         if (password != repeatPassword) {
-            setError("Error: passwords are not equal");
+            setError("passwords are not equal");
             return;
         }
         //API request... if user alredy exists if not register 
         if(email == "registered@1") {
-            setError("Error: user alredy exists pls login")
+            setError("user alredy exists pls login")
             return;
         }
 
@@ -42,7 +42,6 @@ export default function signup() {
                 />
                 <br />
                 <input
-                    className={styles.fText}
                     name="email"
                     type="email"
                     placeholder="email"
@@ -50,7 +49,6 @@ export default function signup() {
                 />
                 <br />
                 <input
-                    className={styles.fText}
                     name="password"
                     type="password"
                     placeholder="password"
@@ -58,7 +56,6 @@ export default function signup() {
                 />
                 <br />
                 <input
-                    className={styles.fText}
                     name="repeatPassword"
                     type="password"
                     placeholder="repeat password"
@@ -72,7 +69,8 @@ export default function signup() {
                     Sign up
                 </button>
                 <br />
-                {error && <p className={styles.errorMessage}>{error}</p>}
+                    <div className={styles.errorMessage}>{error && <p className={styles.errorCard}>{error}</p>}</div>
+                
 
             </form>
         </div>
