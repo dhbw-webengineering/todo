@@ -32,6 +32,7 @@
 
 .taskItem.done {
   opacity: 0.4;
+}
 
 .taskItem.done .taskTitle {
   text-decoration: line-through;
