@@ -4,7 +4,7 @@ import React, { FormEvent, useState } from "react";
 import Image from "next/image";
 import styles from "./page.module.css";
 
-export default function signup() {
+export default function Signup() {
     const [error, setError] = useState<string | null>(null);
 
     const handleLogin = (e: FormEvent<HTMLFormElement>) => {
