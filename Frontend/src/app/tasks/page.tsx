@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 import Image from "next/image";
 import styles from "./page.module.css";
 import moment from 'moment';
+import Link from 'next/link';
+
 moment.locale("de")
 
 interface Task {
@@ -74,7 +76,10 @@ export default function Home() {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>Alle Aufgaben</h1>
+      <div className={styles.titleContainer}>
+        <h1 className={styles.title}>Alle Aufgaben</h1>
+        <Link href="/create"><button><img src="card.svg" alt="" width={20} /><span>neue Aufgabe erstellen</span></button></Link>
+      </div>
       <div className={styles.taskList}>
         {sortedTasks.map((task: Task) => (
           <TaskItem key={task.id} task={task} onStatusChange={changeStatus} />
