@@ -1,20 +1,18 @@
 "use client";
 import { useState } from "react";
-import Popup from "reactjs-popup";
+
 import styles from "./Categories.module.css"
 import Image from "next/image";
-
+import PopupManageCategories from "@/app/components/PopupManageCategories";
+import Category from "../Category";
 function CategoryList() {
-    const [items, setItems] = useState(["Main", "Second"]);
+    const [items, setitems] = useState([new Category("Main",0,22)]);
 
-    const handleClick = (item: string) => {
-        console.log("clicked", item);
+    const handleClick = (item: Category) => {
+        console.log("clicked", item.id);
     };
 
-    const addItem = () => {
-        // Fügt ein zufälliges Element hinzu
-        setItems([...items, `Element ${Math.floor(Math.random() * 1000)}`]);
-    };
+
 
     return (
         <div >
@@ -24,38 +22,14 @@ function CategoryList() {
                         key={index}
                         onClick={() => handleClick(item)}
                     >
-                        {item}
+                        {item.name}
                     </li>
                 ))}
             </ul>
 
 
             <Image src="categories.svg" height={13} width={13} alt="" />
-            <Popup trigger={<button className={styles.button}> Kategorien verwalten </button>} modal className={styles.modal}>
-                <div className={styles.border}>
-                <div className={styles.content}>
-                    <span>
-                        <ul style={{ listStyleType: "none" }} >
-                            {items.map((item, index) => (
-                        <li
-                            key={index}
-                        >
-                            {item}
-                            <Image src="categories.svg" height={13} width={13} alt="" />
-                            <Image src="categories.svg" height={13} width={13} alt="" />
-                        </li>
-                             ))}
-                        </ul>
-                        <button
-                            onClick={addItem}
-                            className={styles.addbutton}
-                        >
-                        <span>Kategorie hinzufügen</span>
-                        </button>
-                    </span>
-                </div>
-                </div>
-            </Popup>
+            <PopupManageCategories items={items} setItems={setitems} />
         </div>
     );
 }

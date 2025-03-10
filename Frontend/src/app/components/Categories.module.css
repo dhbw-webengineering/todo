@@ -1,8 +1,7 @@
 .button {
     font-size: 13pt;
     align-items: center;
-    gap: 0.5rem;
-    margin-top: 0.5rem;
+
     background: none;
     border: none;
     padding: 1px;
@@ -35,10 +34,4 @@
     padding: 25px;
     border-radius: 10px;
     box-shadow: 0 0 500px rgba(241, 241, 241, 0);
-}
-.modal {
-    color: #2563eb;
-}
-.border {
-
 }
