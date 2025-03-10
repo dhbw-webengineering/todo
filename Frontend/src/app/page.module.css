@@ -6,10 +6,17 @@
 
 .title {
   font-size: 24px;
-  margin-bottom: 20px;
 }
 
 .titleContainer {
   display: flex;
   justify-content: space-between;
+}
+
+.timeDisplay {
+  padding-left: 20px;
+  margin-top: 40px;
+  margin-bottom: 10px;
+  color: #dedede;
+  font-weight: bold;
 }
