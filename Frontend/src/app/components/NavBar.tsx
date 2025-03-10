@@ -9,10 +9,10 @@ export default function NavBar() {
     return (
         <div id={styles.root}>
 
-            <a href='/'>
+            <Link href='/'>
                 <Image src="checklist.svg" alt="" width={30} height={30}></Image>
                 <h1>TODO-App</h1>
-            </a>
+            </Link>
 
             <Link href="/tasks" prefetch={false}>
                 alle Aufgaben
