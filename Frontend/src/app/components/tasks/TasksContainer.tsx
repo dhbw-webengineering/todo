@@ -8,7 +8,7 @@ import Task from "@/Task";
 
 
 export default function TasksContainer({query}: {query: string}) {
-  
+
     const [tasks, setTasks] = useState<Task[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
@@ -67,7 +67,7 @@ export default function TasksContainer({query}: {query: string}) {
 
     return (
         <div className={styles.taskList}>
-            {tasks.map((task: Task) => (
+            {sortedTasks.map((task: Task) => (
                       <TaskItem key={task.id} task={task} onStatusChange={changeStatus} />
                     ))}
         </div>
