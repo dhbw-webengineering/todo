@@ -106,6 +106,7 @@
   cursor: pointer;
 }
 
+
 .loading,
 .error {
   text-align: center;
@@ -143,5 +144,30 @@
 
 .taskItem:hover .taskActions {
   opacity: 1;
+}
+
+
+.titleContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.titleContainer button {
+  background-color: #24a0ed;
+  border: black thin solid;
+  padding: 10px;
+  justify-content: center;
+  display: flex;
+  border-radius: 15px;
+  transition: 0.1s;
+}
+
+.titleContainer button:hover {
+  background-color: #2082be;
+  cursor: pointer;
+}
+
+.titleContainer button span {
+  margin-left: 5px;
 }
 
