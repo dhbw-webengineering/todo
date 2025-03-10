@@ -72,7 +72,7 @@ export default function Home() {
     <div className={styles.container}>
       <div className={styles.titleContainer}>
         <h1 className={styles.title}>Alle Aufgaben</h1>
-        <Link href="/create"><button><img src="card.svg" alt="" width={20} /><span>neue Aufgabe erstellen</span></button></Link>
+        <Link href="/create"><button><Image src="card.svg" alt="" width={20} height={20} /><span>neue Aufgabe erstellen</span></button></Link>
       </div>
       <TasksContainer tasks={sortedTasks} changeStatus={changeStatus}/>
     </div>
