@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 import styles from "./page.module.css";
 import moment from 'moment';
 
@@ -54,7 +55,7 @@ export default function TaskForm() {
                     <input type="datetime-local" value={moment().format("YYYY-MM-DDTHH:mm")} {...register('dueDate', { required: true })} />
                     <input {...register('tags')} placeholder="Tags (getrennt durch Komma Space Simekoleon)" />
                     <button type="submit" disabled={loading}>
-                        {loading ? <div><img src="bouncing-circles.svg" alt="" width={20} /><span>wird erstellt</span></div> : <div><img src="card.svg" alt="" width={20} /><span>neue Aufgabe erstellen</span></div>
+                        {loading ? <div><Image src="bouncing-circles.svg" alt="" width={20} height={20} /><span>wird erstellt</span></div> : <div><Image src="card.svg" alt="" width={20} height={20} /><span>neue Aufgabe erstellen</span></div>
                         }
                     </button>
                 </form>
