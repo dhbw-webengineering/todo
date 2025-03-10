@@ -7,7 +7,7 @@ import Task from "@/Task";
 import styles from "./page.module.css";
 import moment from 'moment';
 import Link from 'next/link';
-import TasksContainer from '../components/TasksContainer';
+import TasksContainer from '../components/tasks/TasksContainer';
 
 moment.locale("de")
 
