@@ -32,7 +32,6 @@
 
 .taskItem.done {
   opacity: 0.4;
-}
 
 .taskItem.done .taskTitle {
   text-decoration: line-through;
@@ -106,6 +105,7 @@
   cursor: pointer;
 }
 
+
 .loading,
 .error {
   text-align: center;
@@ -124,6 +124,7 @@
   justify-content: center;
   display: flex;
   flex-direction: column;
+
 }
 
 .taskActions .taskActionBtn {
@@ -168,3 +169,4 @@
 .titleContainer button span {
   margin-left: 5px;
 }
+
