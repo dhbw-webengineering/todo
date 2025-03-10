@@ -10,15 +10,21 @@ export default function NavBar() {
         <div id={styles.root}>
 
             <Link href='/'>
-                <Image src="checklist.svg" alt="" width={30} height={30}></Image>
-                <h1>TODO-App</h1>
+                <div id={styles.logo}>
+                    <Image src="checklist.svg" alt="" width={30} height={30}></Image>
+                    <h1>TODO-App</h1>
+                </div>
             </Link>
 
-            <Link href="/tasks" prefetch={false}>
-                alle Aufgaben
+            <Link href="/" prefetch={false} style={{width: "100%"}}>
+                <div className={styles.navitem}>
+                        Übersicht
+                </div>
             </Link>
-            <Link href="/test" prefetch={false}>
-                Test1
+            <Link href="/tasks" prefetch={false}>
+                <div className={styles.navitem}>
+                    Alle Aufgaben
+                </div>
             </Link>
 
 

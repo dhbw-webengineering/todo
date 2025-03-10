@@ -9,13 +9,6 @@
   margin-bottom: 20px;
 }
 
-.loading,
-.error {
-  text-align: center;
-  font-size: 18px;
-  margin-top: 50px;
-}
-
 .titleContainer {
   display: flex;
   justify-content: space-between;
