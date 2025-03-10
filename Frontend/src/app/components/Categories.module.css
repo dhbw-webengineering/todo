@@ -1,9 +1,22 @@
-.button-link {
+.button {
+    font-size: 13pt;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    background: none;
+    border: none;
+    padding: 1px;
+    cursor: pointer;
+}
+
+.button:hover {
+    color: #91c3e3;
+}
+.addbutton {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    margin-top: 1rem;
-    color: #2563eb;
+    margin-top: 0.5rem;
     text-decoration: underline;
     background: none;
     border: none;
@@ -11,6 +24,21 @@
     cursor: pointer;
 }
 
-.button-link:hover {
-    color: #1d4ed8; /* Dunkleres Blau */
+.addbutton:hover {
+    color: #91c3e3;
+}
+.content {
+    width: 100%;
+    border: 2px solid gray;
+    font-size: 18px;
+    text-align: left;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 500px rgba(241, 241, 241, 0);
+}
+.modal {
+    color: #2563eb;
+}
+.border {
+
 }
