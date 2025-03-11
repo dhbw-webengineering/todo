@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from './NavBar.module.css';
-import Categories from "@/app/components/Categories";
+import Categories from "@/app/components/Categories/Categories";
 
 export default function NavBar() {
 

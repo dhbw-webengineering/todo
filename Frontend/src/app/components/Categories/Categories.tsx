@@ -4,10 +4,10 @@ import { useState } from "react";
 import styles from "./Categories.module.css"
 import Image from "next/image";
 const PopupManageCategories = dynamic(
-    () => import("@/app/components/PopupManageCategories"),
+    () => import("@/app/components/Categories/PopupManageCategories"),
     { ssr: false }
 );
-import Category from "../Category";
+import Category from "../../Category";
 import dynamic from "next/dynamic";
 function CategoryList() {
     const [items, setitems] = useState([new Category("Main",0,22)]);

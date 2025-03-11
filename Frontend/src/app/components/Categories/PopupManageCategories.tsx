@@ -2,9 +2,10 @@
 
 import React from 'react';
 import Popup from 'reactjs-popup';
-import styles from "@/app/components/Categories.module.css";
+import styles from "@/app/components/Categories/Categories.module.css";
 import Image from "next/image";
 import Category from "@/app/Category";
+import AddCategoryPopup from "@/app/components/Categories/AddCategoryPopup";
 
 
 interface PopupManageCategoriesProps {
@@ -29,6 +30,7 @@ export default function PopupManageCategories(props: PopupManageCategoriesProps)
     return (
         <Popup trigger={<button className={styles.button}> Kategorien verwalten </button>}
                modal
+               nested
                overlayStyle={{ background: 'rgba(0, 0, 0, 0.5)' }}
                className={styles.modal}>
 
@@ -48,12 +50,7 @@ export default function PopupManageCategories(props: PopupManageCategoriesProps)
                             </ul>
                         </div>
                         <div className={styles.buttonContainer}>
-                            <button
-                                onClick={addItem}
-                                className={styles.addbutton}
-                            >
-                                <span>Kategorie hinzufügen</span>
-                            </button>
+                            <AddCategoryPopup items={items} setItems={setItems} />
                         </div>
                     </span>
             </div>
