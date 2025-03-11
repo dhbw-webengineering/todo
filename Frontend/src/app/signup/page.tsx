@@ -14,14 +14,14 @@ export default function Signup() {
         const formData = new FormData(e.currentTarget);
         const email = formData.get("email") as string;
         const password = formData.get("password") as string;
-        const repeatPassword = formData.get("repeatPassword")as string;
+        const repeatPassword = formData.get("repeatPassword") as string;
 
         if (password != repeatPassword) {
             setError("passwords are not equal");
             return;
         }
         //API request... if user alredy exists if not register 
-        if(email == "registered@1") {
+        if (email == "registered@1") {
             setError("user alredy exists pls login")
             return;
         }
@@ -31,48 +31,49 @@ export default function Signup() {
     };
 
     return (
-        <div className={styles.loginForm}>
-            <form onSubmit={handleLogin}>
-                <Image
-                    className={styles.fImage}
-                    src="/user.svg"
-                    alt="Logo"
-                    width={70}
-                    height={70}
-                />
-                <br />
-                <input
-                    name="email"
-                    type="email"
-                    placeholder="email"
-                    required
-                />
-                <br />
-                <input
-                    name="password"
-                    type="password"
-                    placeholder="password"
-                    required
-                />
-                <br />
-                <input
-                    name="repeatPassword"
-                    type="password"
-                    placeholder="repeat password"
-                    required
-                />
-                <br />
-                <button
-                    className={styles.fButton}
-                    type="submit"
-                >
-                    Sign up
-                </button>
-                <br />
+        <div className={styles.centerContent}>
+            <div className={styles.loginForm}>
+                <form onSubmit={handleLogin}>
+                    <Image
+                        className={styles.fImage}
+                        src="/user.svg"
+                        alt="Logo"
+                        width={70}
+                        height={70}
+                    />
+                    <br />
                     <div className={styles.errorMessage}>{error && <p className={styles.errorCard}>{error}</p>}</div>
-                
+                    <input
+                        name="email"
+                        type="email"
+                        placeholder="email"
+                        required
+                    />
+                    <br />
+                    <input
+                        name="password"
+                        type="password"
+                        placeholder="password"
+                        required
+                    />
+                    <br />
+                    <input
+                        name="repeatPassword"
+                        type="password"
+                        placeholder="repeat password"
+                        required
+                    />
+                    <br />
+                    <button
+                        className={styles.fButton}
+                        type="submit"
+                    >
+                        Sign up
+                    </button>
 
-            </form>
+                </form>
+            </div>
         </div>
+
     );
 }

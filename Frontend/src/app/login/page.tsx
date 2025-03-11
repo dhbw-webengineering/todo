@@ -28,44 +28,52 @@ export default function Login() {
   };
 
   return (
-    <div className={styles.loginForm}>
-      <form onSubmit={handleLogin}>
-        <Image
-          className={styles.fImage}
-          src="/user.svg"
-          alt="Logo"
-          width={70}
-          height={70}
-        />
-        <br />
-        <input
-          name="email"
-          type="email"
-          placeholder="email"
-          required
-        />
-        <br />
-        <input
-          name="password"
-          type="password"
-          placeholder="password"
-          required
-        />
-        <br />
-        <button className={styles.fButton} type="submit">
-          Log in
-        </button>
-        <button
-          className={styles.fButton}
-          type="button"
-          onClick={() => (window.location.href = "/signup")}
-        >
-          Sign up
-        </button>
-        <br />
-        <div className={styles.errorMessage}>{error && <p className={styles.errorCard}>{error}</p>}</div>
-      
-      </form>
+    <div className={styles.centerContent}>
+      <div className={styles.loginForm}>
+        <form onSubmit={handleLogin}>
+          <Image
+            className={styles.fImage}
+            src="/user.svg"
+            alt="Logo"
+            width={80}
+            height={80}
+          />
+
+          <div className={styles.errorMessage}>{error && <p className={styles.errorCard}>{error}</p>}</div>
+
+          <input
+            name="email"
+            type="email"
+            placeholder="email"
+            required
+          />
+          <br />
+          <input
+            name="password"
+            type="password"
+            placeholder="password"
+            required
+          />
+          <br />
+          <div className={styles.fBox}>
+            <button className={styles.fButton} type="submit">
+              Log in
+            </button>
+            <button
+              className={styles.fButton}
+              type="button"
+              onClick={() => (window.location.href = "/signup")}
+            >
+              Sign up
+            </button>
+          </div>
+          <br />
+          {//{login && <>ich bin dumm</>}
+          }
+
+        </form>
+      </div>
     </div>
+
   );
 }
