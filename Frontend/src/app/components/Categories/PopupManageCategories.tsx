@@ -20,12 +20,8 @@ export default function PopupManageCategories(props: PopupManageCategoriesProps)
         console.log("removed", item1);
     };
     const handleClickEdit = (item: Category) => {
+
     }
-
-    const addItem = () => {
-
-        setItems([...items, new Category("s",1,1)]);
-    };
 
     return (
         <Popup trigger={<button className={styles.button}> Kategorien verwalten </button>}

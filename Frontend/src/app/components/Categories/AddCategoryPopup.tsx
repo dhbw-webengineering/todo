@@ -1,8 +1,7 @@
 "use client"
 import Category from "@/app/Category";
-import React, {FormEvent, ReactNode, useState} from "react";
+import React, {FormEvent, useState} from "react";
 import styles from "@/app/components/Categories/Categories.module.css";
-import Image from "next/image";
 import Popup from "reactjs-popup";
 
 interface AddCategoryPopupProps {
