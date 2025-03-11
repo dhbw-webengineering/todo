@@ -1,68 +1,62 @@
-.container {
-  padding: 20px;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.title {
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-
-.taskList {
-  display: grid;
-  gap: 20px;
-}
-
-.taskItem {
-  background-color: #f0f0f0;
-  border-radius: 8px;
-  padding: 15px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.taskItem.done {
-  opacity: 0.7;
-}
-
-.taskTitle {
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
-.taskDescription {
-  font-size: 14px;
-  color: #555;
-  margin-bottom: 10px;
-}
-
-.taskDueDate {
-  font-size: 12px;
-  color: #777;
-  margin-bottom: 5px;
-}
-
-.taskTags {
+.createFormContainer {
+  background-color: rgb(66, 66, 66);
   display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-  margin-bottom: 10px;
+  justify-content: space-around;
+  padding: 30px;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  border-radius: 10px;
 }
 
-.tag {
-  background-color: #e0e0e0;
-  padding: 3px 8px;
-  border-radius: 4px;
-  font-size: 12px;
+.pageCenter {
+  display: flex;
+  justify-content: center;
 }
 
-.taskStatus {
-  font-size: 14px;
-  font-weight: bold;
+.createFormContainer input,
+.createFormContainer textarea,
+.createFormContainer button {
+  width: 300px;
+  display: block;
+  background-color: transparent;
+  font-size: 20px;
+  margin: 10px;
+  padding: 10px;
+  color: whitesmoke;
+  border: black thin solid;
+  border-radius: 10px;
+  transition: 0.15s;
 }
 
-.loading, .error {
-  text-align: center;
-  font-size: 18px;
-  margin-top: 50px;
+.createFormContainer button {
+  background-color: #24a0ed;
+  border: black thin solid;
+  padding: 10px;
+
+  transition: 0.1s;
+}
+
+.createFormContainer button div {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+
+.createFormContainer button:hover {
+  background-color: #2082be;
+  cursor: pointer;
+}
+
+.createFormContainer span {
+  margin-left: 5px;
+  font-size: 16px;
+}
+
+.createFormContainer input:hover,
+.createFormContainer textarea:hover {
+  border-color: rgb(158, 158, 158);
+  cursor: text;
 }

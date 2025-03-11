@@ -9,13 +9,22 @@ export default function NavBar() {
     return (
         <div id={styles.root}>
 
-            <Image src="checklist.svg" alt="" width={30} height={30}></Image><h1>TODO-App</h1>
-
-            <Link href="/tasks" prefetch={false}>
-                alle Aufgaben
+            <Link href='/'>
+                <div id={styles.logo}>
+                    <Image src="checklist.svg" alt="" width={30} height={30}></Image>
+                    <h1>TODO-App</h1>
+                </div>
             </Link>
-            <Link href="/test" prefetch={false}>
-                Test1
+
+            <Link href="/" prefetch={false} style={{width: "100%"}}>
+                <p className={styles.navitem}>
+                        Übersicht
+                </p>
+            </Link>
+            <Link href="/tasks" prefetch={false}>
+                <p className={styles.navitem}>
+                    Alle Aufgaben
+                </p>
             </Link>
 
 

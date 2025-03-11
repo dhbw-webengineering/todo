@@ -9,62 +9,27 @@
   margin-bottom: 20px;
 }
 
-.taskList {
-  display: grid;
-  gap: 20px;
-}
-
-.taskItem {
-  background-color: #363636;
-  border-radius: 8px;
-  padding: 15px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.taskItem.done {
-  background-color: #333f31;
-  opacity: 0.8;
-}
-
-.taskTitle {
-  font-size: 18px;
-  margin-bottom: 10px;
-  font-weight: 700;
-}
-
-.taskDescription {
-  font-size: 14px;
-  color: #f5f5f5;
-  margin-bottom: 10px;
-}
-
-.taskDueDate {
-  font-size: 12px;
-  color: #f5f5f5;
-  margin-bottom: 5px;
-}
-
-.taskTags {
+.titleContainer {
   display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-  margin-bottom: 10px;
+  justify-content: space-between;
 }
 
-.tag {
-  background-color: #585858;
-  padding: 3px 8px;
-  border-radius: 4px;
-  font-size: 12px;
+.titleContainer button {
+  background-color: #24a0ed;
+  border: black thin solid;
+  padding: 10px;
+  justify-content: center;
+  display: flex;
+  border-radius: 15px;
+  transition: 0.1s;
 }
 
-.taskStatus {
-  font-size: 14px;
-  font-weight: bold;
+.titleContainer button:hover {
+  background-color: #2082be;
+  cursor: pointer;
 }
 
-.loading, .error {
-  text-align: center;
-  font-size: 18px;
-  margin-top: 50px;
+.titleContainer button span {
+  margin-left: 5px;
 }
+
