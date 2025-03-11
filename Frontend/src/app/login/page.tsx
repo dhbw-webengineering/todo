@@ -24,7 +24,7 @@ export default function Login() {
     }
 
     setError(null)
-    window.location.href = "/"
+    window.location.href = "/todo/"
   };
 
   return (
@@ -68,7 +68,7 @@ export default function Login() {
             </button>
           </div>
           <br />
-          {//{login && <>ich bin dumm</>}
+          {//{login && <>ich ...</>}
           }
 
         </form>
