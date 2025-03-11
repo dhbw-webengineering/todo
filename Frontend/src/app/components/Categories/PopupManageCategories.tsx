@@ -1,11 +1,12 @@
 "use client"
 
-import React from 'react';
+import React, {useState} from 'react';
 import Popup from 'reactjs-popup';
 import styles from "@/app/components/Categories/Categories.module.css";
 import Image from "next/image";
 import Category from "@/app/Category";
 import AddCategoryPopup from "@/app/components/Categories/AddCategoryPopup";
+import EditCategoryPopup from "@/app/components/Categories/EditCategoryPopup";
 
 
 interface PopupManageCategoriesProps {
@@ -19,8 +20,16 @@ export default function PopupManageCategories(props: PopupManageCategoriesProps)
         setItems(items.filter((item) => item1.id !== item.id));
         console.log("removed", item1);
     };
-    const handleClickEdit = (item: Category) => {
 
+    const [isPopupOpen, setPopupOpen] = useState(false);
+    const [selectedCategory, setSelectedCategory] = useState<Category | null>(null);
+
+    const openPopup = () => setPopupOpen(true);
+    const closePopup = () => setPopupOpen(false);
+
+    const handleClickEdit = (item: Category) => {
+        setSelectedCategory(item);
+        openPopup()
     }
 
     return (
@@ -48,6 +57,7 @@ export default function PopupManageCategories(props: PopupManageCategoriesProps)
                         <div className={styles.buttonContainer}>
                             <AddCategoryPopup items={items} setItems={setItems} />
                         </div>
+                        <EditCategoryPopup items={items} setItems={setItems} isOpen={isPopupOpen} close={closePopup} category={selectedCategory}/>
                     </span>
             </div>
 

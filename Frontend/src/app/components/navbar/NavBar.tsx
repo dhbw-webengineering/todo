@@ -31,21 +31,6 @@ export default function NavBar() {
             <h2>Kategorien</h2>
             <Categories />
 
-            <hr></hr>
-
-            <h2>Kategorien</h2>
-
-
-            {categories.map((c) =>
-                <Link href={`/tasks?category=${c.id}`} prefetch={false} key={c.id}>
-                    {c.name}
-                </Link>
-            )}
-
-            <Link href={`/categories`} prefetch={false}>
-                <Image src="categories.svg" height={20} width={20} alt="" /> <span>Kategorien verwalten</span>
-            </Link>
-
 
         </div>
     );
