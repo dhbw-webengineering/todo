@@ -64,12 +64,16 @@ export default function Signup() {
                         required
                     />
                     <br />
-                    <button
-                        className={styles.fButton}
-                        type="submit"
-                    >
-                        Sign up
-                    </button>
+                    <div className={styles.fBox}>
+
+                        <button
+                            className={styles.fButton}
+                            type="submit"
+                        >
+                            Sign up
+                        </button>
+                    </div>
+
 
                 </form>
             </div>
