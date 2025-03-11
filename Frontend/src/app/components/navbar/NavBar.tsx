@@ -17,14 +17,14 @@ export default function NavBar() {
             </Link>
 
             <Link href="/" prefetch={false} style={{width: "100%"}}>
-                <div className={styles.navitem}>
+                <p className={styles.navitem}>
                         Übersicht
-                </div>
+                </p>
             </Link>
             <Link href="/tasks" prefetch={false}>
-                <div className={styles.navitem}>
+                <p className={styles.navitem}>
                     Alle Aufgaben
-                </div>
+                </p>
             </Link>
 
 
