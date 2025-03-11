@@ -46,7 +46,7 @@ const parseTags = (tags: string | string[]): string[] => {
 };
 
 app.register(cors, {
-    origin: 'http://localhost:3000', // Exakte Origin, keine Wildcards
+    origin: ['http://localhost:3000', 'https://dhbw-webengineering.github.io'], // Exakte Origin, keine Wildcards
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,

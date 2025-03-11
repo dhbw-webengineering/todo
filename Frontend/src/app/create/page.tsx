@@ -3,7 +3,9 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 import styles from "./page.module.css";
+import moment from 'moment';
 
 interface TaskForm {
     title: string;
@@ -38,23 +40,26 @@ export default function TaskForm() {
             alert("Error creating task")
         } finally {
             setLoading(false);
-            location.href = '/';
+            location.href = '/tasks';
             alert("created task\n" + JSON.stringify(data))
         }
     };
 
     return (
-        <div className={styles.createFormContainer}>
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <input {...register('title', { required: true })} placeholder="Title" />
-                <textarea {...register('description')} placeholder="Description" />
-                <input type="datetime-local" {...register('dueDate', { required: true })} />
-                <input {...register('tags')} placeholder="Tags (getrennt durch Komma Space Simekoleon)" />
-                <button type="submit" disabled={loading}>
-                    {loading ? 'Creating...' : 'Create Task'}
-                </button>
-            </form>
+        <div className={styles.pageCenter}>
+            <div className={styles.createFormContainer}>
+                <h1>Aufgabe erstellen</h1>
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <input {...register('title', { required: true })} placeholder="Titel" />
+                    <textarea {...register('description')} placeholder="Beschreibung" />
+                    <input type="datetime-local" value={moment().format("YYYY-MM-DDTHH:mm")} {...register('dueDate', { required: true })} />
+                    <input {...register('tags')} placeholder="Tags (getrennt durch Komma Space Simekoleon)" />
+                    <button type="submit" disabled={loading}>
+                        {loading ? <div><Image src="bouncing-circles.svg" alt="" width={20} height={20} /><span>wird erstellt</span></div> : <div><Image src="card.svg" alt="" width={20} height={20} /><span>neue Aufgabe erstellen</span></div>
+                        }
+                    </button>
+                </form>
+            </div>
         </div>
-
     );
 }

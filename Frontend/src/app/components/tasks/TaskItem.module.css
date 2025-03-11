@@ -1,0 +1,119 @@
+.taskItem {
+    background-color: #363636;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    position: relative;
+    min-height: 100px;
+}
+
+.taskContent {
+    padding-left: 10px;
+    margin-left: 10px;
+    border-left: solid thin #f5f5f567;
+}
+
+.taskItem.done {
+    opacity: 0.4;
+}
+
+.taskItem.done .taskTitle {
+    text-decoration: line-through;
+    font-weight: 450;
+}
+
+
+.taskTitle {
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+.taskDescription {
+    font-size: 14px;
+    color: #f5f5f5;
+    margin-bottom: 10px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+.taskDueDate {
+    font-size: 12px;
+    color: #f5f5f5;
+    margin-bottom: 5px;
+}
+
+.taskTags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.tag {
+    background-color: #585858;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+
+    -webkit-user-select: none;
+    /* Safari */
+    -ms-user-select: none;
+    /* IE 10 and IE 11 */
+    user-select: none;
+    /* Standard syntax */
+}
+
+.taskStatus {
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.taskStatus input {
+    transform: scale(1.8);
+}
+
+.taskStatus input:hover {
+    cursor: pointer;
+}
+
+.taskActions {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    opacity: 0;
+    transition: 0.2s;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.taskActions .taskActionBtn {
+    padding: 10px;
+    margin: 5px;
+    background-color: #585858;
+    width: 40px;
+    height: 40px;
+    border-radius: 9px;
+}
+
+.taskActions .taskActionBtn:hover {
+    background-color: #686868;
+    cursor: pointer;
+}
+
+.taskItem:hover .taskActions {
+    opacity: 1;
+}

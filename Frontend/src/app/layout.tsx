@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import styles from './layout.module.css';
-import Navbar from "./components/NavBar";
+import Navbar from "./components/navbar/NavBar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,8 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Todo App",
-  description: "Todo App to organize tasks",
+  title: "Todo App"
 };
 
 export default function RootLayout({
@@ -27,9 +26,12 @@ export default function RootLayout({
   return (
     <html lang="de">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <Navbar/>
-        <div id={styles.childrenRoot}>
-          {children}
+        <div className={styles.root}>
+          <Navbar />
+          <div className={styles.placeholder}></div>
+          <div id={styles.childrenRoot}>
+            {children}
+          </div>
         </div>
       </body>
     </html>
