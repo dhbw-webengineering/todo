@@ -3,16 +3,18 @@ import { useState } from "react";
 
 import styles from "./Categories.module.css"
 import Image from "next/image";
-import PopupManageCategories from "@/app/components/PopupManageCategories";
+const PopupManageCategories = dynamic(
+    () => import("@/app/components/PopupManageCategories"),
+    { ssr: false }
+);
 import Category from "../Category";
+import dynamic from "next/dynamic";
 function CategoryList() {
     const [items, setitems] = useState([new Category("Main",0,22)]);
 
     const handleClick = (item: Category) => {
         console.log("clicked", item.id);
     };
-
-
 
     return (
         <div >
