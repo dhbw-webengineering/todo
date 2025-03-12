@@ -19,6 +19,8 @@
 .loginForm {
   background-color: rgba(74, 75, 77, 0.534);
   width: fit-content;
+  background-color: rgba(74, 75, 77, 0.534);
+  width: fit-content;
   display: flex;
   justify-content:  center;
   align-items:center;
@@ -27,6 +29,7 @@
 }
 
 .loginForm input{
+  width: 200px;
   width: 200px;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -51,6 +54,7 @@
   margin-top: 10;
   width: 60px;
   width: 60px;
+  width: 60px;
 }
 
 .fImage {
@@ -66,6 +70,7 @@
   font-size: 16px;
   height: 40px;
   width: 200px;
+  margin-top: 20px;
   margin-top: 20px;
   text-align: center;
   text-wrap: nowrap;
