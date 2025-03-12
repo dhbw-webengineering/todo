@@ -19,10 +19,7 @@ export default function Login() {
     router.replace("/signup");
   };
 
-  const goToLogin = () => {
-    router.replace("/login");
-  };
-
+  
   const handleLogin = (e: FormEvent<HTMLFormElement>) => {
 
 
