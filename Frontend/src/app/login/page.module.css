@@ -10,7 +10,21 @@
 
 
 }
+
+
+.centerContent {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content:  center;
+  align-items:center;
+
+
+
+}
 .loginForm {
+  background-color: rgba(74, 75, 77, 0.534);
+  width: fit-content;
   background-color: rgba(74, 75, 77, 0.534);
   width: fit-content;
   display: flex;
@@ -19,9 +33,13 @@
 
   padding: 20px;
   border-radius: 14px;
+
+  padding: 20px;
+  border-radius: 14px;
 }
 
 .loginForm input{
+  width: 200px;
   width: 200px;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -33,9 +51,18 @@
 .fBox {
   display: flex;
   justify-content: space-evenly;
+  padding: 5px;
+  border-radius: 3px;
+  border:whitesmoke thin solid;
+}
+
+.fBox {
+  display: flex;
+  justify-content: space-evenly;
 }
 .fButton {
   margin-top: 10;
+  width: 60px;
   width: 60px;
 }
 
