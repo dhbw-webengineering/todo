@@ -6,11 +6,7 @@
   display: flex;
   justify-content:  center;
   align-items:center;
-
-
-
 }
-
 
 .centerContent {
   width: 100%;
@@ -18,28 +14,19 @@
   display: flex;
   justify-content:  center;
   align-items:center;
-
-
-
 }
+
 .loginForm {
-  background-color: rgba(74, 75, 77, 0.534);
-  width: fit-content;
   background-color: rgba(74, 75, 77, 0.534);
   width: fit-content;
   display: flex;
   justify-content:  center;
   align-items:center;
-
-  padding: 20px;
-  border-radius: 14px;
-
   padding: 20px;
   border-radius: 14px;
 }
 
 .loginForm input{
-  width: 200px;
   width: 200px;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -53,13 +40,13 @@
   justify-content: space-evenly;
   padding: 5px;
   border-radius: 3px;
-  border:whitesmoke thin solid;
 }
 
 .fBox {
   display: flex;
   justify-content: space-evenly;
 }
+
 .fButton {
   margin-top: 10;
   width: 60px;
@@ -71,7 +58,6 @@
   margin: 0 auto; 
 }
 .errorCard {
-
   height: 30px;
 
 }
