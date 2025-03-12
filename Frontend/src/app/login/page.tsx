@@ -3,10 +3,23 @@
 import React, { FormEvent, useState } from "react";
 import Image from "next/image";
 import styles from "./page.module.css";
+import { useRouter } from "next/navigation";
 
 export default function Login() {
   const [error, setError] = useState<string | null>(null);
 
+
+  const router = useRouter();
+
+  const goToHome = () => {
+    router.replace("/");
+  };
+
+  const goToSignup = () => {
+    router.replace("/signup");
+  };
+
+  
   const handleLogin = (e: FormEvent<HTMLFormElement>) => {
 
 
@@ -22,9 +35,8 @@ export default function Login() {
       setError("wrong email or password");
       return;
     }
-
     setError(null)
-    window.location.href = "/todo/"
+    goToHome()
   };
 
   return (
@@ -62,18 +74,19 @@ export default function Login() {
             <button
               className={styles.fButton}
               type="button"
-              onClick={() => (window.location.href = "/signup")}
+              onClick={goToSignup}
             >
               Sign up
             </button>
           </div>
           <br />
-          {//{login && <>ich ...</>}
+          {//{login && <>ich bin dumm</>}
           }
 
         </form>
       </div>
     </div>
+
 
   );
 }
