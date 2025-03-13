@@ -3,10 +3,17 @@
 import React, { FormEvent, useState } from "react";
 import Image from "next/image";
 import styles from "./page.module.css";
+import { useRouter } from "next/navigation";
 
 export default function Signup() {
     const [error, setError] = useState<string | null>(null);
 
+    const router = useRouter();
+
+    const goToLogin = () => {
+
+        router.replace("/login")
+    }
     const handleLogin = (e: FormEvent<HTMLFormElement>) => {
 
         e.preventDefault();
@@ -27,7 +34,7 @@ export default function Signup() {
         }
 
         setError(null)
-        window.location.href = "/login"
+        goToLogin()
     };
 
     return (
@@ -64,12 +71,16 @@ export default function Signup() {
                         required
                     />
                     <br />
-                    <button
-                        className={styles.fButton}
-                        type="submit"
-                    >
-                        Sign up
-                    </button>
+                    <div className={styles.fBox}>
+
+                        <button
+                            className={styles.fButton}
+                            type="submit"
+                        >
+                            Sign up
+                        </button>
+                    </div>
+
 
                 </form>
             </div>
