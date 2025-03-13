@@ -5,7 +5,7 @@ import Categories from "@/app/components/Categories/Categories";
 
 export default function NavBar() {
 
-    const categories = [{ "name": "Allgemein", "id": 0 }, { "name": "Kategorie 1", "id": 1 }, { "name": "Kategorie 2", "id": 2 }, { "name": "Kategorie 3", "id": 3 }]
+    //const categories = [{ "name": "Allgemein", "id": 0 }, { "name": "Kategorie 1", "id": 1 }, { "name": "Kategorie 2", "id": 2 }, { "name": "Kategorie 3", "id": 3 }]
 
     return (
         <div id={styles.root}>
