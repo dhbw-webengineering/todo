@@ -1,19 +1,60 @@
-.loginForm {
+
+
+.centerContent {
+  width: 100%;
+  height: 100vh;
   display: flex;
   justify-content:  center;
   align-items:center;
-  height: 100vh
-  
+}
+
+.centerContent {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content:  center;
+  align-items:center;
+}
+
+.loginForm {
+  background-color: rgba(74, 75, 77, 0.534);
+  width: fit-content;
+  background-color: rgba(74, 75, 77, 0.534);
+  width: fit-content;
+  display: flex;
+  justify-content:  center;
+  align-items:center;
+  padding: 20px;
+  border-radius: 14px;
 }
 
 .loginForm input{
-  width: 180px;
+  width: 200px;
+  width: 200px;
   margin-top: 10px;
   margin-bottom: 10px;
+  padding: 5px;
+  border-radius: 3px;
+  border:whitesmoke thin solid;
 }
+
+.fBox {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 5px;
+  border-radius: 3px;
+}
+
+.fBox {
+  display: flex;
+  justify-content: space-evenly;
+}
+
 .fButton {
   margin-top: 10;
-  margin-right: 10px;
+  width: 60px;
+  width: 60px;
+  width: 60px;
 }
 
 .fImage {
@@ -21,20 +62,16 @@
   margin: 0 auto; 
 }
 .errorCard {
-
-  border-radius: 5px;
-  background-color: rgba(255, 0, 0, 0.603);
-  padding: 5px;
-  
+  height: 30px;
 
 }
 .errorMessage {
-  color: rgb(255, 255, 255);
-  text-align: center;
+  color: rgb(255, 0, 0);
+  font-size: 16px;
   height: 40px;
-  width: 180px;
-  font-size: 14px;
-  margin-top: 15px;
+  width: 200px;
+  margin-top: 20px;
+  margin-top: 20px;
+  text-align: center;
   text-wrap: nowrap;
-
 }
