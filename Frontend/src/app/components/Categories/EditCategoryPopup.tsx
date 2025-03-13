@@ -15,7 +15,7 @@ interface EditCategoryPopupProps {
 export default function EditCategoryPopup({ items, setItems, isOpen, close, category }: EditCategoryPopupProps) {
     const [name, setName] = useState("");
 
-    // Setzt den Namen in das Input-Feld, wenn sich die Kategorie ändert
+
     useEffect(() => {
         if (category) {
             setName(category.name);
@@ -24,9 +24,9 @@ export default function EditCategoryPopup({ items, setItems, isOpen, close, cate
 
     const editItem = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        if (!category) return; // Falls keine Kategorie ausgewählt ist, nichts tun
+        if (!category) return;
 
-        // Ersetze das bearbeitete Item mit dem neuen Namen
+
         setItems(
             items.map((item) =>
                 item.id === category.id ? new Category(name, category.id, category.user_id) : item

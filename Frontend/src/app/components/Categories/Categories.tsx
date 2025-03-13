@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 
-import styles from "./Categories.module.css"
 import Image from "next/image";
 const PopupManageCategories = dynamic(
     () => import("@/app/components/Categories/PopupManageCategories"),
