@@ -209,18 +209,8 @@ app.delete('/api/category/:id/delete', (request: FastifyRequest, reply: FastifyR
     reply.status(204).send();
 });
 
-const opts = {
-    schema: {
-      response: {
-        200: {
-          type: typeof(categories),
-        }
-      }
-    }
-  }
-
 // alle categories zurückgeben
-app.get('/api/category/list', opts, (request: FastifyRequest, reply: FastifyReply) => {
+app.get('/api/category/list', (request: FastifyRequest, reply: FastifyReply) => {
     reply.send(categories);
 });
 
