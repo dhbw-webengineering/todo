@@ -52,7 +52,7 @@ export default function TaskForm() {
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <input {...register('title', { required: true })} placeholder="Titel" />
                     <textarea {...register('description')} placeholder="Beschreibung" />
-                    <input type="datetime-local" value={moment().format("YYYY-MM-DDTHH:mm")} {...register('dueDate', { required: true })} />
+                    <input type="datetime-local" defaultValue={moment().format("YYYY-MM-DDTHH:mm")} {...register('dueDate', { required: true })} />
                     <input {...register('tags')} placeholder="Tags (getrennt durch Komma Space Simekoleon)" />
                     <button type="submit" disabled={loading}>
                         {loading ? <div><Image src="bouncing-circles.svg" alt="" width={20} height={20} /><span>wird erstellt</span></div> : <div><Image src="card.svg" alt="" width={20} height={20} /><span>neue Aufgabe erstellen</span></div>
@@ -61,5 +61,5 @@ export default function TaskForm() {
                 </form>
             </div>
         </div>
-    );
+    ); 
 }
