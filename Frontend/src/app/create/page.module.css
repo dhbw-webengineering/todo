@@ -1,0 +1,62 @@
+.createFormContainer {
+  background-color: rgb(66, 66, 66);
+  display: flex;
+  justify-content: space-around;
+  padding: 30px;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  border-radius: 10px;
+}
+
+.pageCenter {
+  display: flex;
+  justify-content: center;
+}
+
+.createFormContainer input,
+.createFormContainer textarea,
+.createFormContainer button {
+  width: 300px;
+  display: block;
+  background-color: transparent;
+  font-size: 20px;
+  margin: 10px;
+  padding: 10px;
+  color: whitesmoke;
+  border: black thin solid;
+  border-radius: 10px;
+  transition: 0.15s;
+}
+
+.createFormContainer button {
+  background-color: #24a0ed;
+  border: black thin solid;
+  padding: 10px;
+
+  transition: 0.1s;
+}
+
+.createFormContainer button div {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+
+.createFormContainer button:hover {
+  background-color: #2082be;
+  cursor: pointer;
+}
+
+.createFormContainer span {
+  margin-left: 5px;
+  font-size: 16px;
+}
+
+.createFormContainer input:hover,
+.createFormContainer textarea:hover {
+  border-color: rgb(158, 158, 158);
+  cursor: text;
+}
