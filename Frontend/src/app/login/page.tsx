@@ -68,7 +68,8 @@ export default function Login() {
           />
           <br />
           <div className={styles.fBox}>
-            <button className={styles.fButton} type="submit">
+            <button className={styles.fButton} 
+            type="submit">
               Log in
             </button>
             <button
@@ -80,7 +81,7 @@ export default function Login() {
             </button>
           </div>
           <br />
-          {//{login && <>ich bin dumm</>}
+          {//{login && <>ich</>}
           }
 
         </form>
