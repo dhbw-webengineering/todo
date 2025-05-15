@@ -66,7 +66,7 @@ export default function MultiSelectDropdown({ options, placeholder }: MultiSelec
       isMulti
       options={options}
       value={selectedOptions}
-      onChange={setSelectedOptions}
+      onChange={setSelectedOptions} //+ Backendanfrage
       placeholder={placeholder}
       styles={customStyles}
     />
