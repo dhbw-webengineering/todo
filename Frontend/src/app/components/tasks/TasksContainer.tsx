@@ -21,18 +21,16 @@ interface TasksContainerProps {
   sendTaskUpdate?: (task: Task) => void;
 }
 
-function TasksContainer(props: TasksContainerProps, ref: Ref<TasksContainerRef>) {
-  const {apiRoute, day, range, setHasData, showTasksDone, sendTaskUpdate} = props;
-  const [tasks, setTasks] = useState<Task[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
+interface LoadTasksProps {
+  apiRoute: ApiRoute;
+  updateTasks: (newTasks: SetStateAction<Task[]>) => void;
+  setError: (newTasks: SetStateAction<string | null>) => void;
+  setLoading: (newTasks: SetStateAction<boolean>) => void;
+}
 
-  useImperativeHandle(ref, () => ({
-    updateTask
-  }));
-
-  const loadTasks = async (start?: number, end?: number) => {
-    useEffect(() => {
+export function useLoadTasks(props: LoadTasksProps, start?: number, end?: number) {
+  const {apiRoute, updateTasks, setError, setLoading} = props;
+  useEffect(() => {
       async function fetchTasks() {
         try {
           const query = (apiRoute == ApiRoute.ENTRY_LIST_NEXT) ? `${apiRoute}?start=${start}&end=${end}` : apiRoute;
@@ -50,15 +48,17 @@ function TasksContainer(props: TasksContainerProps, ref: Ref<TasksContainerRef>)
       }
       fetchTasks();
     }, []);
-  }
+}
 
-  if ((day === undefined) && (range === undefined)) {
-    loadTasks();
-  } else {
-    const start = (day !== undefined) ? day : range?.[0];
-    const end = (day !== undefined) ? day : range?.[1];
-    loadTasks(start, end);
-  }
+function TasksContainer(props: TasksContainerProps, ref: Ref<TasksContainerRef>) {
+  const {apiRoute, day, range, setHasData, showTasksDone, sendTaskUpdate} = props;
+  const [tasks, setTasks] = useState<Task[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useImperativeHandle(ref, () => ({
+    updateTask
+  }));
 
   const updateTasks = (newTasks: SetStateAction<Task[]>) => {
     setTasks(newTasks);
@@ -119,6 +119,19 @@ function TasksContainer(props: TasksContainerProps, ref: Ref<TasksContainerRef>)
     }
   };
 
+  const loadTasksProps = {
+    apiRoute: apiRoute,
+    updateTasks: updateTasks,
+    setError: setError,
+    setLoading: setLoading
+  };
+  if ((day === undefined) && (range === undefined)) {
+    useLoadTasks(loadTasksProps);
+  } else {
+    const start = (day !== undefined) ? day : range?.[0];
+    const end = (day !== undefined) ? day : range?.[1];
+    useLoadTasks(loadTasksProps, start, end);
+  }
 
   if (loading) return <div className={styles.loading}>Loading tasks...</div>;
   if (error) return <div className={styles.error}>Error: {error}</div>;
