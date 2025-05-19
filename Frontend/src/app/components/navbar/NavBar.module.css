@@ -30,4 +30,5 @@
     -webkit-transition: background-color 125ms ease-in-out;
     -ms-transition: background-color 125ms ease-in-out;
     transition: background-color 125ms ease-in-out;
+    cursor: pointer;
 }

@@ -2,6 +2,7 @@
 import { useState } from "react";
 
 import Image from "next/image";
+import navbarStyles from '../navbar/NavBar.module.css';
 const PopupManageCategories = dynamic(
     () => import("@/app/components/Categories/PopupManageCategories"),
     { ssr: false }
@@ -17,20 +18,20 @@ function CategoryList() {
 
     return (
         <div >
-            <ul style={{ listStyleType: "none" }} >
-                {items.map((item, index) => (
-                    <li
-                        key={index}
-                        onClick={() => handleClick(item)}
-                    >
-                        {item.name}
-                    </li>
-                ))}
-            </ul>
+            {items.map((item, index) => (
+                <p
+                    className={navbarStyles.navitem}
+                    key={index}
+                    onClick={() => handleClick(item)}
+                >
+                    {item.name}
+                </p>
+            ))}
 
-
-            <Image src="categories.svg" height={13} width={13} alt="" />
-            <PopupManageCategories items={items} setItems={setitems} />
+            <div className={navbarStyles.navitem}>
+                <Image src="categories.svg" height={13} width={13} alt="" />
+                <PopupManageCategories items={items} setItems={setitems} />
+            </div>
         </div>
     );
 }
