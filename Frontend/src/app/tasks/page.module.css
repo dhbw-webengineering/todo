@@ -40,3 +40,47 @@
   margin-top: 10px;
   justify-content: space-between;
 }
+
+.dropdown {
+  display: flex;
+  
+}
+
+.dropdown > * {
+  margin-right: 5px;
+}
+
+.dateRangeWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.dateRangePicker {
+  display: none;
+  position: absolute;
+  top: 43px;
+  right: 0;
+  z-index: 20;
+}
+
+.dateRangeWrapper:hover .dateRangePicker,
+.dateRangeLabel:focus + .dateRangePicker {
+  display: block;
+}
+
+.dateRangeLabel {
+  cursor: pointer;
+  padding: 0 12px;
+  background: #000;
+  border: solid 1px #24a0ed;
+  border-radius: 4px;
+  border-color: #24a0ed;
+  color: rgb(133, 128, 128);
+  font-weight: 500;
+  transition: background 0.2s;
+  height: 40px;           /* gleiche Höhe wie Dropdown */
+  line-height: 40px;      /* vertikal zentriert */
+  font-size: 16px;        /* gleiche Schriftgröße wie Dropdown */
+  display: inline-block;  /* damit Höhe und Padding wirken */
+  vertical-align: middle;
+}

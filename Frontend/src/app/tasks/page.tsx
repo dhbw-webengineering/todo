@@ -1,18 +1,13 @@
-"use client"
-import { Metadata } from "next";
+"use client";
 import Image from "next/image";
 import styles from "./page.module.css";
 import moment from 'moment';
 import Link from 'next/link';
 import TasksContainer from '../components/tasks/TasksContainer';
 import MultiSelectDropdown from "../components/MultiselectDropdown/MultiselectDropdown";
-import { DateRange } from "react-date-range";
+import DateRange from "../components/DateRange/DateRange";
 
 moment.locale("de")
-
-export const metadata: Metadata = {
-  title: "Alle Aufgaben - Todo App"
-};
 
 //beispieldaten für Dropdowns
 const kategorieOptionen1 = [
@@ -41,14 +36,16 @@ export default function Home() {
         <Link href="/create"><button><Image src="card.svg" alt="" width={20} height={20} /><span>neue Aufgabe erstellen</span></button></Link>
       </div>
       <div className={styles.menuBar}>
-        
+        <div className={styles.dropdown}>
           <MultiSelectDropdown options={kategorieOptionen1} placeholder="Kategorien"/>
-    
           <MultiSelectDropdown options={kategorieOptionen2} placeholder="Tags"/>
-
-          <DateRange />
-               
-        
+        </div>
+        <div className={styles.dateRangeWrapper}>
+          <span className={styles.dateRangeLabel}>Select date range</span>
+          <div className={styles.dateRangePicker}>
+            <DateRange/>
+          </div>
+        </div>
       </div>
       <TasksContainer query={query}/>
     </div>

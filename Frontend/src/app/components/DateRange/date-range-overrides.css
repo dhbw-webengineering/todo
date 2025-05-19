@@ -1,0 +1,111 @@
+:root {
+  --primary-blue: #24a0ed;
+  --gray: #363636;
+  --white: #fff;
+}
+
+/* Kalender-Wrapper */
+.rdrCalendarWrapper {
+  background: var(--gray);
+  box-shadow: 0 2px 8px rgba(56, 237, 36, 0.1);
+  width: 320px;
+  min-width: 220px;
+  max-width: 100%;
+  font-size: 13px;
+  padding: 8px;
+}
+
+/* Monatsbereich */
+.rdrMonth {
+  width: 320px;
+}
+
+/* Kopfzeile (Monatsname und Navigation) */
+.rdrMonthAndYearWrapper {
+  height: 40px;
+  font-size: 1.1em;
+  background: var(--gray);
+  padding: 6px 0;
+}
+
+/* Wochentagsnamen */
+.rdrWeekDays {
+  font-size: 1em;
+  margin-bottom: 2px;
+}
+
+/* Tagesfelder */
+.rdrDay {
+  width: 40px;
+  height: 32px;
+  font-size: 1em;
+  margin: 1px;
+  background: var(--gray);
+  color: var(--white);
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+/* Heute-Tag hervorheben */
+.rdrDayToday .rdrDayNumber span {
+  border-bottom: 2px solid var(--primary-blue);
+  font-weight: bold;
+}
+
+/* Ausgewählter Bereich */
+.rdrSelected,
+.rdrInRange,
+.rdrStartEdge,
+.rdrEndEdge {
+  background: #186dc3 !important;
+  color: #ff0000 !important;
+}
+
+/* Tagesnummern */
+.rdrDayNumber span {
+  color: var(--white);
+}
+
+/* Nicht auswählbare Tage */
+.rdrDayPassive {
+  opacity: 0.5;
+}
+
+/* Navigation Buttons */
+.rdrNextPrevButton {
+  background: var(--primary-blue);
+  color: #ff0000;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  transition: background 0.2s;
+}
+.rdrNextPrevButton:hover {
+  background: var(--primary-blue);
+}
+
+/* Abstand zwischen Monaten */
+.rdrMonths {
+  gap: 16px;
+}
+
+.rdrStaticRange {
+  background: var(--gray);
+  color: var(--white);
+  border-radius: 4px;
+  margin-bottom: 4px;
+}
+
+.rdrStaticRangeLabel {
+  color: var(--white);
+}
+
+/* Optional: Hover-Effekt für bessere Sichtbarkeit */
+.rdrStaticRange:hover,
+.rdrStaticRange:focus {
+  background: #222; /* dunkleres Grau beim Hover */
+}
+
+.rdrDefinedRangesWrapper {
+  background: var(--gray);
+}
