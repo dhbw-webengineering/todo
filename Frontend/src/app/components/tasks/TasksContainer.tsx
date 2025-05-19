@@ -21,35 +21,6 @@ interface TasksContainerProps {
   sendTaskUpdate?: (task: Task) => void;
 }
 
-interface LoadTasksProps {
-  apiRoute: ApiRoute;
-  updateTasks: (newTasks: SetStateAction<Task[]>) => void;
-  setError: (newTasks: SetStateAction<string | null>) => void;
-  setLoading: (newTasks: SetStateAction<boolean>) => void;
-}
-
-export function useLoadTasks(props: LoadTasksProps, start?: number, end?: number) {
-  const {apiRoute, updateTasks, setError, setLoading} = props;
-  useEffect(() => {
-      async function fetchTasks() {
-        try {
-          const query = (apiRoute == ApiRoute.ENTRY_LIST_NEXT) ? `${apiRoute}?start=${start}&end=${end}` : apiRoute;
-          const response = await fetch(query);
-          if (!response.ok) {
-            throw new Error(`HTTP error: Status ${response.status}`);
-          }
-          const data: Task[] = await response.json();
-          updateTasks(data);
-        } catch (err) {
-          setError(err instanceof Error ? err.message : 'An unknown error occurred');
-        } finally {
-          setLoading(false);
-        }
-      }
-      fetchTasks();
-    }, []);
-}
-
 function TasksContainer(props: TasksContainerProps, ref: Ref<TasksContainerRef>) {
   const {apiRoute, day, range, setHasData, showTasksDone, sendTaskUpdate} = props;
   const [tasks, setTasks] = useState<Task[]>([]);
@@ -59,6 +30,35 @@ function TasksContainer(props: TasksContainerProps, ref: Ref<TasksContainerRef>)
   useImperativeHandle(ref, () => ({
     updateTask
   }));
+
+  useEffect(() => {
+    async function fetchTasks() {
+      let start = 0;
+      let end = 0;
+      if (day !== undefined) {
+        start = end = day;
+      }
+      if (range !== undefined) {
+        start = range?.[0];
+        end = range?.[1];
+      }
+
+      try {
+        const query = (apiRoute == ApiRoute.ENTRY_LIST_NEXT) ? `${apiRoute}?start=${start}&end=${end}` : apiRoute;
+        const response = await fetch(query);
+        if (!response.ok) {
+          throw new Error(`HTTP error: Status ${response.status}`);
+        }
+        const data: Task[] = await response.json();
+        updateTasks(data);
+      } catch (err) {
+        setError(err instanceof Error ? err.message : 'An unknown error occurred');
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchTasks();
+  }, []);
 
   const updateTasks = (newTasks: SetStateAction<Task[]>) => {
     setTasks(newTasks);
@@ -119,19 +119,6 @@ function TasksContainer(props: TasksContainerProps, ref: Ref<TasksContainerRef>)
     }
   };
 
-  const loadTasksProps = {
-    apiRoute: apiRoute,
-    updateTasks: updateTasks,
-    setError: setError,
-    setLoading: setLoading
-  };
-  if ((day === undefined) && (range === undefined)) {
-    useLoadTasks(loadTasksProps);
-  } else {
-    const start = (day !== undefined) ? day : range?.[0];
-    const end = (day !== undefined) ? day : range?.[1];
-    useLoadTasks(loadTasksProps, start, end);
-  }
 
   if (loading) return <div className={styles.loading}>Loading tasks...</div>;
   if (error) return <div className={styles.error}>Error: {error}</div>;
