@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import React from "react";
+
 import styles from "./page.module.css";
 
-import TasksContainer from "./components/tasks/TasksContainer";
+import OverviewTasks from "./components/tasks/OverviewTasks";
 
 
 export const metadata: Metadata = {
@@ -10,22 +12,14 @@ export const metadata: Metadata = {
 
 export default function Home() {
 
-  const query = "http://localhost:3001/api/entry/list";
-
   return (
     <div className={styles.container}>
-    <div className={styles.titleContainer}>
-      <h1 className={styles.title}>Übersicht</h1>
-    </div>
+      <div className={styles.titleContainer}>
+        <h1 className={styles.title}>Übersicht</h1>
+      </div>
 
-    <h3 className={styles.timeDisplay}>Heute</h3>
-    <TasksContainer query={query}/>
-    
-    <h3 className={styles.timeDisplay}>Morgen</h3>
-    <TasksContainer query={query}/>
-    
-    <h3 className={styles.timeDisplay}>Nächste 3 Tage</h3>
-    <TasksContainer query={query}/>
-  </div>
+      <OverviewTasks/>
+
+    </div>
   );
-  }
+}
