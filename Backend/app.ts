@@ -15,6 +15,11 @@ interface Task {
     tags: string[];
     done: boolean;
 }
+interface Category {
+    name: string;
+    id: number;
+    user_id: number;
+}
 
 const app: FastifyInstance = Fastify();
 const tasks: Task[] = [{
@@ -38,6 +43,19 @@ const tasks: Task[] = [{
     dueDate: 1743301163,
     tags: ["tag1"],
     done: false
+}];
+const categories: Category[] = [{
+    name: "Standard",
+    id: 0,
+    user_id: 0
+}, {
+    name: "Studium",
+    id: 1,
+    user_id: 0
+}, {
+    name: "Einkaufen",
+    id: 2,
+    user_id: 0
 }];
 
 // Tags von String, in dem sie durch ","," " oder ";" getrennt werden mit dem regex in ein Array parsen und randleerzeichen entfernen
@@ -188,6 +206,60 @@ app.get('/api/entry/:id', (request: FastifyRequest, reply: FastifyReply) => {
     if (!task) return reply.status(404).send({ error: 'Task not found' });
     reply.send(task);
 });
+
+
+
+
+
+
+// category erstellen
+app.post('/api/category/create', (request: FastifyRequest, reply: FastifyReply) => {
+    const { name, user_id } = request.body as {
+        name: string,
+        user_id: number
+    };
+    if (!name || !user_id ) {
+        return reply.status(400).send({ error: 'Name and User Id are required' });
+    }
+
+    const newId = categories.length > 0 ? categories[categories.length - 1].id + 1 : 0;
+
+    const newCategory: Category = {
+        name: name,
+        id: newId,
+        user_id: user_id
+    };
+    categories.push(newCategory);
+    reply.status(201).send(newCategory);
+});
+
+// category editieren
+app.put('/api/category/:id/edit', (request: FastifyRequest, reply: FastifyReply) => {
+    const { id } = request.params as { id: string };
+    const category = categories.find(c => c.id === parseInt(id));
+    if (!category) return reply.status(404).send({ error: 'Category not found' });
+
+    const { name } = request.body as Partial<Category>;
+    if (name) category.name = name;
+
+    reply.send(category);
+});
+
+// category löschen
+app.delete('/api/category/:id/delete', (request: FastifyRequest, reply: FastifyReply) => {
+    const { id } = request.params as { id: string };
+    const index = categories.findIndex(c => c.id === parseInt(id));
+    if (index === -1) return reply.status(404).send({ error: 'Category not found' });
+
+    categories.splice(index, 1);
+    reply.status(204).send();
+});
+
+// alle categories zurückgeben
+app.get('/api/category/list', (request: FastifyRequest, reply: FastifyReply) => {
+    reply.send(categories);
+});
+
 
 
 app.listen({ port: 3001 }, () => {
