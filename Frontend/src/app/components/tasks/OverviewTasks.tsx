@@ -2,41 +2,51 @@
 
 import Task from "@/Task";
 import TasksDisplay from "./TasksDisplay";
-import { RefObject, useRef } from "react";
+import { createRef } from "react";
 import { TasksContainerRef } from "./TasksContainer";
 
 
 export default function OverviewTasks() {
 
-    const tasksRefs: RefObject<TasksContainerRef | null>[] = [];
-
-    for (let i = 0; i < 9; i++) {
-        tasksRefs.push(useRef<TasksContainerRef>(null))
-    }
+    const taskListRefs = [
+        createRef<TasksContainerRef>(),
+        createRef<TasksContainerRef>(),
+        createRef<TasksContainerRef>(),
+        createRef<TasksContainerRef>(),
+        createRef<TasksContainerRef>(),
+        createRef<TasksContainerRef>(),
+        createRef<TasksContainerRef>(),
+        createRef<TasksContainerRef>(),
+        createRef<TasksContainerRef>()
+    ];
 
     function updateTask(task: Task) {
-        tasksRefs.forEach(taskRef => taskRef.current?.updateTask(task));
+        taskListRefs.forEach(ref => {
+            ref.current?.updateTask(task);
+        });
     }
 
     return (
         <>
-        <TasksDisplay header="Heute" day={0} sendTaskUpdate={updateTask} tasksUpdateRef={tasksRefs[0]} />
+        
+        <TasksDisplay header="Heute" day={0} sendTaskUpdate={updateTask} tasksUpdateRef={taskListRefs[0] /*((el: Ref<TasksContainerRef>) => (tasksRefs.current[0] = el)).call*/} />
+        
+        <TasksDisplay header="Morgen" day={1} sendTaskUpdate={updateTask} tasksUpdateRef={taskListRefs[1]} />
 
-        <TasksDisplay header="Morgen" day={1} sendTaskUpdate={updateTask} tasksUpdateRef={tasksRefs[1]} />
+        <TasksDisplay header="Nächste 3 Tage" range={[0, 2]} sendTaskUpdate={updateTask} tasksUpdateRef={taskListRefs[2]} />
 
-        <TasksDisplay header="Nächste 3 Tage" range={[0, 2]} sendTaskUpdate={updateTask} tasksUpdateRef={tasksRefs[2]} />
+        <TasksDisplay header="Nächste 7 Tage" range={[0, 6]} sendTaskUpdate={updateTask} tasksUpdateRef={taskListRefs[3]} />
 
-        <TasksDisplay header="Nächste 7 Tage" range={[0, 6]} sendTaskUpdate={updateTask} tasksUpdateRef={tasksRefs[3]} />
+        <TasksDisplay header="In 1 Woche" range={[7, 13]} sendTaskUpdate={updateTask} tasksUpdateRef={taskListRefs[4]} />
 
-        <TasksDisplay header="In 1 Woche" range={[7, 13]} sendTaskUpdate={updateTask} tasksUpdateRef={tasksRefs[4]} />
+        <TasksDisplay header="In 2 Wochen" range={[14, 20]} sendTaskUpdate={updateTask} tasksUpdateRef={taskListRefs[5]} />
 
-        <TasksDisplay header="In 2 Wochen" range={[14, 20]} sendTaskUpdate={updateTask} tasksUpdateRef={tasksRefs[5]} />
+        <TasksDisplay header="In 3 Wochen" range={[21, 27]} sendTaskUpdate={updateTask} tasksUpdateRef={taskListRefs[6]} />
 
-        <TasksDisplay header="In 3 Wochen" range={[21, 27]} sendTaskUpdate={updateTask} tasksUpdateRef={tasksRefs[6]} />
+        <TasksDisplay header="In 4 Wochen" range={[28, 34]} sendTaskUpdate={updateTask} tasksUpdateRef={taskListRefs[7]} />
 
-        <TasksDisplay header="In 4 Wochen" range={[28, 34]} sendTaskUpdate={updateTask} tasksUpdateRef={tasksRefs[7]} />
+        <TasksDisplay header="Nächste 30 Tage" range={[0, 29]} sendTaskUpdate={updateTask} tasksUpdateRef={taskListRefs[8]} />
 
-        <TasksDisplay header="Nächste 30 Tage" range={[0, 29]} sendTaskUpdate={updateTask} tasksUpdateRef={tasksRefs[8]} />
         </>
     );
 }

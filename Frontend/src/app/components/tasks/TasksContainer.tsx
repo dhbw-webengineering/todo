@@ -31,6 +31,27 @@ function TasksContainer(props: TasksContainerProps, ref: Ref<TasksContainerRef>)
     updateTask
   }));
 
+  const loadTasks = async (start?: number, end?: number) => {
+    useEffect(() => {
+      async function fetchTasks() {
+        try {
+          const query = (apiRoute == ApiRoute.ENTRY_LIST_NEXT) ? `${apiRoute}?start=${start}&end=${end}` : apiRoute;
+          const response = await fetch(query);
+          if (!response.ok) {
+            throw new Error(`HTTP error: Status ${response.status}`);
+          }
+          const data: Task[] = await response.json();
+          updateTasks(data);
+        } catch (err) {
+          setError(err instanceof Error ? err.message : 'An unknown error occurred');
+        } finally {
+          setLoading(false);
+        }
+      }
+      fetchTasks();
+    }, []);
+  }
+
   const updateTasks = (newTasks: SetStateAction<Task[]>) => {
     setTasks(newTasks);
     if (setHasData !== undefined) {
@@ -52,27 +73,6 @@ function TasksContainer(props: TasksContainerProps, ref: Ref<TasksContainerRef>)
     if (setHasData !== undefined && count === 0) {
       setHasData(false);
     }
-  }
-
-  const loadTasks = async (start?: number, end?: number) => {
-    useEffect(() => {
-      async function fetchTasks() {
-        try {
-          const query = (apiRoute == ApiRoute.ENTRY_LIST_NEXT) ? `${apiRoute}?start=${start}&end=${end}` : apiRoute;
-          const response = await fetch(query);
-          if (!response.ok) {
-            throw new Error(`HTTP error: Status ${response.status}`);
-          }
-          const data: Task[] = await response.json();
-          updateTasks(data);
-        } catch (err) {
-          setError(err instanceof Error ? err.message : 'An unknown error occurred');
-        } finally {
-          setLoading(false);
-        }
-      }
-      fetchTasks();
-    }, []);
   }
 
   const filteredTasks = showTasksDone ? tasks : [...tasks].filter(task => !task.done);
