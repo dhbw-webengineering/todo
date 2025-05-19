@@ -29,7 +29,7 @@ export default function OverviewTasks() {
     return (
         <>
         
-        <TasksDisplay header="Heute" day={0} sendTaskUpdate={updateTask} tasksUpdateRef={taskListRefs[0] /*((el: Ref<TasksContainerRef>) => (tasksRefs.current[0] = el)).call*/} />
+        <TasksDisplay header="Heute" day={0} sendTaskUpdate={updateTask} tasksUpdateRef={taskListRefs[0]} />
         
         <TasksDisplay header="Morgen" day={1} sendTaskUpdate={updateTask} tasksUpdateRef={taskListRefs[1]} />
 
