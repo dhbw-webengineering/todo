@@ -52,6 +52,14 @@ function TasksContainer(props: TasksContainerProps, ref: Ref<TasksContainerRef>)
     }, []);
   }
 
+  if ((day === undefined) && (range === undefined)) {
+    loadTasks();
+  } else {
+    const start = (day !== undefined) ? day : range?.[0];
+    const end = (day !== undefined) ? day : range?.[1];
+    loadTasks(start, end);
+  }
+
   const updateTasks = (newTasks: SetStateAction<Task[]>) => {
     setTasks(newTasks);
     if (setHasData !== undefined) {
@@ -111,14 +119,6 @@ function TasksContainer(props: TasksContainerProps, ref: Ref<TasksContainerRef>)
     }
   };
 
-
-  if ((day === undefined) && (range === undefined)) {
-    loadTasks();
-  } else {
-    const start = (day !== undefined) ? day : range?.[0];
-    const end = (day !== undefined) ? day : range?.[1];
-    loadTasks(start, end);
-  }
 
   if (loading) return <div className={styles.loading}>Loading tasks...</div>;
   if (error) return <div className={styles.error}>Error: {error}</div>;
